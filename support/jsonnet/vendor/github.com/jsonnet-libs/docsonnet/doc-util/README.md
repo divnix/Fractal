@@ -9,29 +9,28 @@ local d = import "github.com/jsonnet-libs/docsonnet/doc-util"
 ```
 
 `doc-util` provides a Jsonnet interface for `docsonnet`,
- a Jsonnet API doc generator that uses structured data instead of comments.
-
+a Jsonnet API doc generator that uses structured data instead of comments.
 
 ## Index
 
-* [`fn arg(name, type, default)`](#fn-arg)
-* [`fn fn(help, args)`](#fn-fn)
-* [`fn obj(help, fields)`](#fn-obj)
-* [`fn pkg(name, url, help)`](#fn-pkg)
-* [`fn val(type, help, default)`](#fn-val)
-* [`obj argument`](#obj-argument)
-  * [`fn new(name, type, default)`](#fn-argumentnew)
-* [`obj func`](#obj-func)
-  * [`fn new(help, args)`](#fn-funcnew)
-  * [`fn withArgs(args)`](#fn-funcwithargs)
-  * [`fn withHelp(help)`](#fn-funcwithhelp)
-* [`obj object`](#obj-object)
-  * [`fn new(help, fields)`](#fn-objectnew)
-  * [`fn withFields(fields)`](#fn-objectwithfields)
-* [`obj package`](#obj-package)
-  * [`fn new(name, url, help)`](#fn-packagenew)
-* [`obj value`](#obj-value)
-  * [`fn new(type, help, default)`](#fn-valuenew)
+- [`fn arg(name, type, default)`](#fn-arg)
+- [`fn fn(help, args)`](#fn-fn)
+- [`fn obj(help, fields)`](#fn-obj)
+- [`fn pkg(name, url, help)`](#fn-pkg)
+- [`fn val(type, help, default)`](#fn-val)
+- [`obj argument`](#obj-argument)
+  - [`fn new(name, type, default)`](#fn-argumentnew)
+- [`obj func`](#obj-func)
+  - [`fn new(help, args)`](#fn-funcnew)
+  - [`fn withArgs(args)`](#fn-funcwithargs)
+  - [`fn withHelp(help)`](#fn-funcwithhelp)
+- [`obj object`](#obj-object)
+  - [`fn new(help, fields)`](#fn-objectnew)
+  - [`fn withFields(fields)`](#fn-objectwithfields)
+- [`obj package`](#obj-package)
+  - [`fn new(name, url, help)`](#fn-packagenew)
+- [`obj value`](#obj-value)
+  - [`fn new(type, help, default)`](#fn-valuenew)
 
 ## Fields
 
@@ -46,7 +45,7 @@ arg(name, type, default)
 ### fn fn
 
 ```ts
-fn(help, args)
+fn(help, args);
 ```
 
 `fn` is a shorthand for `func.new`
@@ -54,7 +53,7 @@ fn(help, args)
 ### fn obj
 
 ```ts
-obj(help, fields)
+obj(help, fields);
 ```
 
 `obj` is a shorthand for `object.new`
@@ -62,7 +61,7 @@ obj(help, fields)
 ### fn pkg
 
 ```ts
-pkg(name, url, help)
+pkg(name, url, help);
 ```
 
 `new` is a shorthand for `package.new`
@@ -94,7 +93,7 @@ Utilities for documenting Jsonnet methods (functions of objects)
 ### fn func.new
 
 ```ts
-new(help, args)
+new (help, args)();
 ```
 
 new creates a new function, optionally with description and arguments
@@ -102,7 +101,7 @@ new creates a new function, optionally with description and arguments
 ### fn func.withArgs
 
 ```ts
-withArgs(args)
+withArgs(args);
 ```
 
 The `withArgs` modifier overrides the arguments of that function
@@ -110,7 +109,7 @@ The `withArgs` modifier overrides the arguments of that function
 ### fn func.withHelp
 
 ```ts
-withHelp(help)
+withHelp(help);
 ```
 
 The `withHelp` modifier overrides the help text of that function
@@ -122,7 +121,7 @@ Utilities for documenting Jsonnet objects (`{ }`).
 ### fn object.new
 
 ```ts
-new(help, fields)
+new (help, fields)();
 ```
 
 new creates a new object, optionally with description and fields
@@ -130,19 +129,17 @@ new creates a new object, optionally with description and fields
 ### fn object.withFields
 
 ```ts
-withFields(fields)
+withFields(fields);
 ```
 
 The `withFields` modifier overrides the fields property of an already created object
 
 ## obj package
 
-
-
 ### fn package.new
 
 ```ts
-new(name, url, help)
+new (name, url, help)();
 ```
 
 new creates a new package with given `name`, `import` URL and `help` text

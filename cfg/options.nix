@@ -1,4 +1,7 @@
-{inputs, cell}:
+{
+  inputs,
+  cell,
+}:
 /*
 Cluster-level options
 */
@@ -7,4 +10,3 @@ Cluster-level options
 Component-level options
 */
 // (import ./options/component.nix {inherit (inputs.nixpkgs) lib;})
-

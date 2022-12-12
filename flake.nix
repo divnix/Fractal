@@ -58,6 +58,6 @@
         ["ext" "flux"]
       ];
       # compatibility with former x86_64-linux - only lib
-      lib = inputs.xnlib.lib.extend (_: _: { kube = self.lib'.x86_64-linux; });
+      lib = inputs.xnlib.lib.extend (_: _: {kube = self.lib'.x86_64-linux;});
     };
 }

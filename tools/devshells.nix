@@ -1,11 +1,14 @@
-{inputs, cell}: let
-    l = nixpkgs.lib // builtins;
+{
+  inputs,
+  cell,
+}: let
+  l = nixpkgs.lib // builtins;
 
-    inherit (inputs) nixpkgs std;
-    inherit (std.lib) dev;
+  inherit (inputs) nixpkgs std;
+  inherit (std.lib) dev;
 
-    withCategory = category: attrset: attrset // {inherit category;};
-in 
+  withCategory = category: attrset: attrset // {inherit category;};
+in
   l.mapAttrs (_: dev.mkShell) {
     default = {...}: {
       name = "Fractal Devenv";
@@ -21,11 +24,14 @@ in
         (withCategory "fractal" {package = nixpkgs.ijq;})
         (withCategory "fractal" {package = nixpkgs.yq-go;})
         (withCategory "fractal" {package = nixpkgs.python3;})
-        (withCategory "fractal" {package = l.lazyDerivation {
+        (withCategory "fractal" {
+          package = l.lazyDerivation {
             derivation = nixpkgs.writers.writePython3Bin "json2nix.py" {} (l.readFile ./json2nix.py);
             meta.description = "a hacky json2nix script";
-        };})
-        (withCategory "fractal" {package = l.lazyDerivation {
+          };
+        })
+        (withCategory "fractal" {
+          package = l.lazyDerivation {
             derivation = nixpkgs.writers.writeBashBin "convert.sh" ''
               for i in *.yaml; do
                   strip=''${i%.*}
@@ -34,8 +40,8 @@ in
               done
             '';
             meta.description = "convert all yaml files in the cwd to nix";
-        };})
+          };
+        })
       ];
     };
   }
-
