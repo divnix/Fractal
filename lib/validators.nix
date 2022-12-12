@@ -90,7 +90,7 @@ in rec {
       )
       attrs.definitions);
 
-  # Runs Kubeval to validate resources against Kubernetes API and CRD schemas
+  # validate resources against Kubernetes API and CRD schemas
   transformValidateManifests = attrs: version: crds: let
     metadata =
       (fetchAPISchema version)
