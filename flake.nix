@@ -21,6 +21,9 @@
         ./ext # extensions library
         ./app # fractal cli
         ./cfg # fractal cfg interfaces
+
+        # repo tooling for the fractal repo itelf
+        ./tools
       ];
       cellBlocks = with std.blockTypes; [
         # library
@@ -36,10 +39,14 @@
         (functions "modules")
         # fractal cli
         (installables "packages")
+
+        # repo tooling
+        (devshells "devshells")
       ];
     }
     {
       packages = std.harvest self ["app" "packages"];
+      devShells = std.harvest self ["tools" "devshells"];
       lib' = std.harvest self [
         ["lib"]
         ["ext"]

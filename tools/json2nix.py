@@ -12,7 +12,8 @@ def indent(s):
 
 
 def nix_stringify(s):
-    # fixme: this doesn't handle string interpolation and possibly has more bugs
+    # fixme: this doesn't handle string interpolation
+    # and possibly has more bugs
     return json.dumps(s)
 
 
@@ -77,4 +78,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
